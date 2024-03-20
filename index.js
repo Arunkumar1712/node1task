@@ -32,7 +32,7 @@ app.get("/write",(req,res)=>{
     fs.writeFile(`./filesCreated/${filename}`, data, (err) => {
         if (err) {
             console.log("Error Occurred", err);
-            res.send(`Error occurred while writing ${filename}.txt`);
+            res.send(`Error occurred while writing ${filename}`);
         } else {
             console.log(`${filename} added`);
             res.send(`${filename} file added successfully`); // Changed this line
