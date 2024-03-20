@@ -1,0 +1,20 @@
+NodeJS File System Project
+This project demonstrates a simple Node.js application that utilizes the file system module to create and manage files with timestamps. It also includes functionality to read file names from a directory.
+
+Features
+File Writing: The application allows users to create files with current timestamps.
+File Reading: Users can retrieve and display file names from the directory.
+Deployment
+The project has been deployed on Render and can be accessed here
+URl ("https://node1task.onrender.com/").
+
+Usage
+To run the application locally:
+Clone the repository: git clone https://github.com/your-username/nodejs-file-system.git
+Install dependencies: cd nodejs-file-system && npm install
+Start the server: npm start
+
+Technologies Used
+Node.js
+Express.js
+JavaScript
