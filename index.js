@@ -5,16 +5,15 @@ const port =3000;
 
 
 app.get('/', function (req, res) {
-  res.send('Hello World')
+  res.send('nodeJs file System')
 })
 
 app.listen(port,()=>console.log("server started")) 
 const currentDatetime = new Date();
 
-// Format t
 
-// Create the filename
-// Format the date and time
+
+
 const year = currentDatetime.getFullYear();
 const month = String(currentDatetime.getMonth() + 1);
 const day = String(currentDatetime.getDate()).padStart(2, '0');
@@ -25,6 +24,8 @@ const minutes = String(currentDatetime.getMinutes()).padStart(2, '0');
 const seconds = String(currentDatetime.getSeconds());
 // Create the filename
 const filename = `${year}-${month}-${day}-${hours}-${minutes}-${amPm}.txt`;
+
+// Create the Timestamp 
 const data=`Curent Timestamp - ${hours}-${minutes}-${seconds}-${amPm}`
 console.log(data);
 
@@ -48,12 +49,3 @@ app.get("/read", (req, res) => {
     });
   });
 
-//   const filePath = `./filesCreated/2024-3-20-8-35-PM.txt`; // Replace this with the path to your file
-
-// fs.unlink(filePath, (err) => {
-//   if (err) {
-//     console.error('Error deleting file:', err);
-//     return;
-//   }
-//   console.log('File deleted successfully');
-// });
