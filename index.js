@@ -15,12 +15,12 @@ const currentDatetime = new Date();
 
 
 const year = currentDatetime.getFullYear();
-const month = String(currentDatetime.getMonth() + 1);
-const day = String(currentDatetime.getDate()).padStart(2, '0');
+const month = (currentDatetime.getMonth() + 1).toString();
+const day = (currentDatetime.getDate()).padStart(2, '0').toString();
 let hours = currentDatetime.getHours();
 const amPm =(hours >= 12 ? 'PM' : 'AM').padStart(2, '0');
 hours = (hours % 12 || 12).toString().padStart(2, '0');; // Convert hours to 12-hour format
-const minutes = String(currentDatetime.getMinutes()).padStart(2, '0');
+const minutes = (currentDatetime.getMinutes()).toString().padStart(2, '0');
 const seconds = String(currentDatetime.getSeconds());
 // Create the filename
 const filename = `${year}-${month}-${day}-${hours}-${minutes}-${amPm}.txt`;
@@ -35,7 +35,7 @@ app.get("/write",(req,res)=>{
         if (err) {
             console.log("Error Occurred", err);
           } else {
-            console.log(`${filename}.txt Added`);
+            console.log(`${filename}Added`);
           }
           res.send(`${filename}.txt file added successfully`);
     })
