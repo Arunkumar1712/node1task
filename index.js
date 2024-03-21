@@ -42,7 +42,7 @@ app.get("/createfile",(req,res)=>{
 
 app.get("/readfile", (req, res) => {
     fs.readdir(`./filesCreated`, (err, files) => {
-      res.send(`All file names are ${files}`);
+      res.send(`<div style=txt-align:left><h1 style=txt-align:left;margin-left:20px>File names are:</h1> <h2>${files}</h2></div>`);
     });
 });
 app.get('/*', (req, res) => {
