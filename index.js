@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', function (req, res) {
-  res.send('nodeJs file System');
+  res.send('<div style=textalign:center><h1>Welcome to NodeJs file System Creator</h1><h1>For creating file add "/createfile"</h1><h1>For reading file add "/readfile"</h1></div>');
 });
 
 app.listen(port, () => console.log("Server started")); 
@@ -12,15 +12,15 @@ app.listen(port, () => console.log("Server started"));
 app.get("/createfile",(req,res)=>{
     const currentDatetime = new Date();
 
-    // Format the date and time
-    const year = currentDatetime.getFullYear();
-    const month = (currentDatetime.getMonth() + 1).toString().padStart(2, '0');
-    const day = currentDatetime.getDate().toString().padStart(2, '0');
-    let hours = currentDatetime.getHours();
+    // Format the date and time in UTC
+    const year = currentDatetime.getUTCFullYear();
+    const month = (currentDatetime.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = currentDatetime.getUTCDate().toString().padStart(2, '0');
+    let hours = currentDatetime.getUTCHours();
     const amPm = (hours >= 12 ? 'PM' : 'AM');
     hours = (hours % 12 || 12).toString().padStart(2, '0'); // Convert hours to 12-hour format
-    const minutes = currentDatetime.getMinutes().toString().padStart(2, '0');
-    const seconds = currentDatetime.getSeconds().toString().padStart(2, '0');
+    const minutes = currentDatetime.getUTCMinutes().toString().padStart(2, '0');
+    const seconds = currentDatetime.getUTCSeconds().toString().padStart(2, '0');
     
     // Create the filename
     const filename = `${year}-${month}-${day}-${hours}-${minutes}-${seconds}-${amPm}.txt`;
@@ -45,3 +45,6 @@ app.get("/readfile", (req, res) => {
       res.send(`All file names are ${files}`);
     });
 });
+app.get('/*', (req, res) => {
+    res.status(404).send(`<h1 style=text-align:center> 404 Page not found </h1><img src="https://c.tenor.com/IHdlTRsmcS4AAAAC/tenor.gif"/>`);
+  });
