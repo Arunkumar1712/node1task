@@ -13,6 +13,9 @@ Deployment
 The project has been deployed on Render and can be accessed here
 URl ("https://node1task.onrender.com/").
 
+
+**Note:** Please be aware that there might be a discrepancy in the displayed timestamps between your local system and the Render environment. This is due to differences in the timezone settings or server configurations. While the timestamps generated on your local system reflect your local timezone, the timestamps generated on Render may be based on a different timezone or server configuration. As a result, you may notice variations in the displayed time. However, the functionality of the application remains unaffected by this difference.
+
 Usage
 To run the application locally:
 Clone the repository: git clone https://github.com/your-username/nodejs-file-system.git
