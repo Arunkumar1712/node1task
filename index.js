@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
 
 app.listen(port, () => console.log("Server started")); 
 
-app.get("/write",(req,res)=>{
+app.get("/createfile",(req,res)=>{
     const currentDatetime = new Date();
 
     // Format the date and time
@@ -40,7 +40,7 @@ app.get("/write",(req,res)=>{
     });
 });
 
-app.get("/read", (req, res) => {
+app.get("/readfile", (req, res) => {
     fs.readdir(`./filesCreated`, (err, files) => {
       res.send(`All file names are ${files}`);
     });
