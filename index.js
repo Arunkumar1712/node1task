@@ -78,7 +78,7 @@ app.get("/createfile",(req,res)=>{
     // Create the filename
     let fileName = `${day}-${month}-${year}-${hours}-${minutes}-${seconds}-${period}.txt`;
     const fileContent =  `current TimeStamp - ${currentTimeStamp.toString()}`
-    
+    // using fs to write file
      fs.writeFile(`./filesCreated/${fileName}`, fileContent, (err) => {
         if (err) {
             console.log("Error Occurred", err);
@@ -120,6 +120,7 @@ app.get("/createfile",(req,res)=>{
 });
 
 app.get("/readfile", (req, res) => {
+    // uisng fs to read the created file from directory
     fs.readdir(`./filesCreated`, (err, files) => {
         if (err) {
             console.error("Error occurred while reading files:", err);
@@ -158,6 +159,7 @@ app.get("/readfile", (req, res) => {
   </div>`);
     });
 });
+// to show 404 for wrong urls
 app.get('/*', (req, res) => {
     res.status(404).send(`<h1 style=text-align:center> 404 Page not found </h1><img src="https://c.tenor.com/IHdlTRsmcS4AAAAC/tenor.gif"/>`);
   });
