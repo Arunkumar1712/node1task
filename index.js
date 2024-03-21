@@ -35,14 +35,15 @@ app.get("/createfile",(req,res)=>{
             res.send(`Error occurred while writing ${filename}`);
         } else {
             console.log(`${filename} added`);
-            res.send(`${filename} file added successfully`); // Changed this line
+            res.send(`<div style=txt-align:left;background-color:#a7a6ba><h1 style=txt-align:left;margin-left:20px>Created File :</h1> <h2>${filename}</h2></div>`); // Changed this line
+
         }
     });
 });
 
 app.get("/readfile", (req, res) => {
     fs.readdir(`./filesCreated`, (err, files) => {
-      res.send(`<div style=txt-align:left><h1 style=txt-align:left;margin-left:20px>File names are:</h1> <h2>${files}</h2></div>`);
+      res.send(`<div style=txt-align:left;background-color:#a7a6ba><h1 style=txt-align:left;margin-left:20px>File names are:</h1> <h2>${files}</h2></div>`);
     });
 });
 app.get('/*', (req, res) => {
