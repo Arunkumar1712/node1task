@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', function (req, res) {
-  res.send('<div style=txt-align:left;background-color:#a7a6ba><h1>Welcome to NodeJs file System Creator</h1><h1>For creating file add "/createfile"</h1><h1>For reading file add "/readfile"</h1></div>');
+  res.send('<div style=txt-align:left;background-color:#a7a6ba><h2 style=text-align:center>Welcome to NodeJs file System Creator</h2><h3># For creating file add "/createfile"</h3><h3># For reading file add "/readfile"</h3></div>');
 });
 
 app.listen(port, () => console.log("Server started")); 
@@ -35,7 +35,7 @@ app.get("/createfile",(req,res)=>{
             res.send(`Error occurred while writing ${filename}`);
         } else {
             console.log(`${filename} added`);
-            res.send(`<div style=txt-align:left;background-color:#a7a6ba><h1 style=txt-align:left;margin-left:20px>Created File :</h1> <h2>${filename}</h2></div>`); // Changed this line
+            res.send(`<div style=txt-align:left;background-color:#a7a6ba><h2 style=txt-align:left;margin-left:20px>Created </h2> ${filename} successfully</div>`); 
 
         }
     });
@@ -43,7 +43,13 @@ app.get("/createfile",(req,res)=>{
 
 app.get("/readfile", (req, res) => {
     fs.readdir(`./filesCreated`, (err, files) => {
-      res.send(`<div style=txt-align:left;background-color:#a7a6ba><h1 style=txt-align:left;margin-left:20px>File names are:</h1> <h2>${files}</h2></div>`);
+        if (err) {
+            console.error("Error occurred while reading files:", err);
+            res.status(500).send("Failed to read files. Please try again later❌.");
+            return;
+          }
+          const fileslist =files.map((file)=>`<ul><li>📝${file}</ul></li>`).join("")
+      res.send(`<div style=txt-align:left;background-color:#a7a6ba><h2 style=txt-align:left;margin-left:20px>File names are:</h2>${fileslist}</div>`);
     });
 });
 app.get('/*', (req, res) => {
