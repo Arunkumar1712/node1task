@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', function (req, res) {
-  res.send('<div style=textalign:center><h1>Welcome to NodeJs file System Creator</h1><h1>For creating file add "/createfile"</h1><h1>For reading file add "/readfile"</h1></div>');
+  res.send('<div style=txt-align:left;background-color:#a7a6ba><h1>Welcome to NodeJs file System Creator</h1><h1>For creating file add "/createfile"</h1><h1>For reading file add "/readfile"</h1></div>');
 });
 
 app.listen(port, () => console.log("Server started")); 
